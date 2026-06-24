@@ -6,7 +6,7 @@
 import type { PerformanceRecord } from '@/types/record'
 import { extractYear } from '@/types/record'
 import type { ScoreDimension } from '@/types/dimension'
-import type { RankedResult, RankClass, RankingFilters } from '@/types/ranking'
+import type { RankedResult, RankingFilters } from '@/types/ranking'
 import {
   groupRecords,
   computeDimensionStats,

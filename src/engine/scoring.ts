@@ -5,7 +5,6 @@
 
 import type { PerformanceRecord } from '@/types/record'
 import { extractYear } from '@/types/record'
-import type { ScoreDimension } from '@/types/dimension'
 
 export interface GroupedRecords {
   key: string   // "年份_类别"

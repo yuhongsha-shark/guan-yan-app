@@ -7,9 +7,7 @@ import { computeRanking } from '@/engine/ranking'
 import RankingFilters from '@/components/ranking/RankingFilters.vue'
 import RankChart from '@/components/ranking/RankChart.vue'
 import RankingList from '@/components/ranking/RankingList.vue'
-import EmptyState from '@/components/common/EmptyState.vue'
 import BackupReminder from '@/components/common/BackupReminder.vue'
-import { Plus, Palette, RefreshCw, Music, Download, X, SlidersHorizontal, ChevronDown, ChevronRight } from '@lucide/vue'
 import { generatePoster, preparePosterResults } from '@/composables/usePoster'
 import GiscusComments from '@/components/common/GiscusComments.vue'
 import { POSTER_MAX_ITEMS, RED_PERCENTILE, BLACK_PERCENTILE } from '@/config/constants'
@@ -17,7 +15,7 @@ import { DEFAULT_SCALE } from '@/config/defaults'
 import type { RankingFilters as RankingFiltersType } from '@/types/ranking'
 
 const route = useRoute()
-const { records, fetchAll: fetchRecords } = useRecords()
+const { fetchAll: fetchRecords } = useRecords()
 const { dimensions, activeDimensions, normalizedWeights, fetchAll: fetchDimensions, setWeight, toggleActive } = useDimensions()
 
 const rankedResults = ref<any[]>([])

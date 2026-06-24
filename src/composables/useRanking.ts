@@ -8,7 +8,7 @@ import { DEFAULT_SCALE } from '@/config/defaults'
 
 export function useRanking() {
   const { records, fetchAll: fetchRecords } = useRecords()
-  const { dimensions, activeDimensions, normalizedWeights, fetchAll: fetchDimensions } = useDimensions()
+  const { activeDimensions, normalizedWeights, fetchAll: fetchDimensions } = useDimensions()
 
   const rankedResults = ref<RankedResult[]>([])
   const computing = ref(false)

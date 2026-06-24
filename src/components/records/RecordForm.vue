@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, watch, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import type { PerformanceRecord, CreateRecordInput, CustomField } from '@/types/record'
 import { useDimensions } from '@/composables/useDimensions'
 import ScoreInput from './ScoreInput.vue'
@@ -9,7 +9,7 @@ import { db } from '@/db/index'
 const props = defineProps<{ record?: PerformanceRecord | null }>()
 const emit = defineEmits<{ submit: [data: CreateRecordInput]; cancel: [] }>()
 
-const { dimensions, activeDimensions, fetchAll } = useDimensions()
+const { activeDimensions, fetchAll } = useDimensions()
 
 const DRAFT_KEY = 'record-form-draft'
 
@@ -65,6 +65,7 @@ function clearDraft() { localStorage.removeItem(DRAFT_KEY) }
 
 onMounted(async () => {
   await fetchAll()
+  const allRecords = await db.records.toArray()
   const cats = await db.categories.toArray()
   // 按记录中出现频率排序已有的类别
   const catFreq = freqSort(allRecords.map(r => r.category).filter(Boolean) as string[])
@@ -76,7 +77,6 @@ onMounted(async () => {
     return ia - ib
   })
   // 加载已有记录中的购买渠道和现状，用于自动补全
-  const allRecords = await db.records.toArray()
   existingChannels.value = freqSort(allRecords.map(r => r.purchaseChannel).filter(Boolean) as string[])
   existingStatuses.value = freqSort(allRecords.map(r => r.status).filter(Boolean) as string[])
   existingVenues.value = freqSort(allRecords.map(r => r.venue).filter(Boolean) as string[])

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { Download, FileJson, FileSpreadsheet, Upload, Search, ClipboardList, Database, Star } from '@lucide/vue'
 import { exportJSON, exportExcel, importJSON, getDataStats, parsePastedText, autoMapColumns, detectScoreColumns, importParsedData, type ParsedExcelData } from '@/composables/useBackup'
 import { db } from '@/db/index'
 
@@ -38,7 +37,8 @@ const FALLBACK_DIMS = [
 
 async function loadDimensions() {
   try {
-    const dims = await db.dimensions.where('active').equals(true).toArray()
+    const allDims = await db.dimensions.toArray()
+    const dims = allDims.filter(d => d.active)
     if (dims.length > 0) {
       dimensionNames.value = dims.map(d => ({ key: d.key, name: d.name }))
     } else {

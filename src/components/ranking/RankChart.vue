@@ -37,7 +37,7 @@ function isDark() {
   return document.documentElement.classList.contains('dark')
 }
 
-function buildConfig(): ChartConfiguration {
+function buildConfig(): ChartConfiguration<'scatter'> {
   const dark = isDark()
   const gridColor = dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)'
   const textColor = dark ? '#999' : '#666'
@@ -47,8 +47,8 @@ function buildConfig(): ChartConfiguration {
     black: dark ? '#999' : '#1f1f1f',
   }
 
-  const rankOrder = ['red', 'gray', 'black'] as const
-  const labels = { red: '红榜', gray: '灰榜', black: '黑榜' }
+  const rankOrder = ['red', 'grey', 'black'] as const
+  const labels = { red: '红榜', grey: '灰榜', black: '黑榜' }
 
   const datasets = rankOrder.map(rank => {
     const points: ScatterPoint[] = props.results
@@ -61,7 +61,7 @@ function buildConfig(): ChartConfiguration {
       backgroundColor: colors[rank],
       borderColor: (dark ? '#fff' : colors[rank]),
       borderWidth: dark ? 1 : 0,
-      pointRadius: rank === 'gray' ? 6 : 6,
+      pointRadius: rank === 'grey' ? 6 : 6,
       pointHoverRadius: 10,
       pointHoverBorderWidth: 2,
       pointHoverBorderColor: dark ? '#fff' : '#000',
@@ -104,7 +104,7 @@ function buildConfig(): ChartConfiguration {
           titleColor: '#fff',
           bodyColor: '#fff',
           bodyFont: { family: 'system-ui', weight: 'bold', size: 12 },
-          titleFont: { family: 'system-ui', weight: '900', size: 13 },
+          titleFont: { family: 'system-ui', weight: 'bold', size: 13 },
           padding: 12,
           cornerRadius: 0,
           displayColors: false,

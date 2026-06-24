@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useDimensions } from '@/composables/useDimensions'
-import { SlidersHorizontal, Plus } from '@lucide/vue'
 import DimensionList from '@/components/dimensions/DimensionList.vue'
 import AddDimensionDialog from '@/components/dimensions/AddDimensionDialog.vue'
 import ConfirmDialog from '@/components/common/ConfirmDialog.vue'
-import EmptyState from '@/components/common/EmptyState.vue'
 
 const { dimensions, normalizedWeights, fetchAll, create, update, remove, toggleActive, setWeight } = useDimensions()
 const showAddDialog = ref(false)

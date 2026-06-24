@@ -26,9 +26,6 @@ const starDisplay = computed(() => {
   return { full, half, empty }
 })
 
-function toStars(val: number): string {
-  return (Math.round(val / 10) / 2).toFixed(1)
-}
 </script>
 
 <template>

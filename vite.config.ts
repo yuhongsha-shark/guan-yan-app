@@ -5,6 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { resolve } from 'path'
 
 export default defineConfig({
+  base: '/guan-yan-app/',
   plugins: [
     vue(),
     tailwindcss(),
@@ -15,8 +16,8 @@ export default defineConfig({
         name: '观演红黑榜',
         short_name: '红黑榜',
         description: '个人观演评分记录与性价比排名',
-        theme_color: '#4f46e5',
-        background_color: '#f8fafc',
+        theme_color: '#000000',
+        background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait-primary',
         icons: [

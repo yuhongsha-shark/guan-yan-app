@@ -30,7 +30,8 @@ export async function seedDefaults(): Promise<void> {
       )
 
       // 删除旧的内置维度中 key 已不在预设中的（如旧的 audio → 新的 sound）
-      const allBuiltIns = await db.dimensions.where('builtIn').equals(true).toArray()
+      const allDims = await db.dimensions.toArray()
+      const allBuiltIns = allDims.filter(d => d.builtIn)
       for (const dim of allBuiltIns) {
         if (!presetKeys.has(dim.key)) {
           await db.dimensions.delete(dim.id!)
@@ -42,7 +43,7 @@ export async function seedDefaults(): Promise<void> {
     }
 
     // 兜底：确保至少有一个活跃维度
-    const activeCount = await db.dimensions.where('active').equals(true).count()
+    const activeCount = (await db.dimensions.toArray()).filter(d => d.active).length
     if (activeCount === 0) {
       const now = new Date()
       await db.dimensions.bulkPut(

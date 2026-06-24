@@ -10,7 +10,7 @@ import { DEFAULT_SCALE } from '@/config/defaults'
 import type { RankingFilters } from '@/types/ranking'
 import EmptyState from '@/components/common/EmptyState.vue'
 
-const { records, fetchAll: fetchRecords } = useRecords()
+const { fetchAll: fetchRecords } = useRecords()
 const { activeDimensions, normalizedWeights, fetchAll: fetchDimensions } = useDimensions()
 
 const rankedResults = ref<any[]>([])

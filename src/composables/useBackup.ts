@@ -104,13 +104,16 @@ export async function importExcel(
   const rows = XLSX.utils.sheet_to_json<Record<string, unknown>>(wb.Sheets[wb.SheetNames[0]])
 
   const now = new Date()
-  const records: PerformanceRecord[] = rows.map((row, i) => ({
+  const records: PerformanceRecord[] = rows.map(row => ({
     name: String(row[columnMapping.name] || ''),
     date: String(row[columnMapping.date] || ''),
     category: String(row[columnMapping.category] || '其他'),
     venue: String(row[columnMapping.venue] || ''),
     price: parseFloat(String(row[columnMapping.price] || '0').replace(/[,，¥$€£\s]/g, '')) || 0,
-    scores: {}, // Excel 导入暂不处理多维度评分
+    purchaseChannel: '',
+    seat: '',
+    status: '',
+    scores: {},
     customFields: [],
     notes: '',
     createdAt: now,
@@ -302,6 +305,9 @@ export async function importParsedData(
       category: String(row[columnMapping.category] || '其他'),
       venue: String(row[columnMapping.venue] || ''),
       price: parseFloat(String(row[columnMapping.price] || '0').replace(/[,，¥$€£\s]/g, '')) || 0,
+      purchaseChannel: '',
+      seat: '',
+      status: '',
       scores,
       customFields: [],
       notes: '',

@@ -2,7 +2,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useRecords } from '@/composables/useRecords'
-import { CheckCircle, List, Trophy, ArrowLeft } from '@lucide/vue'
+import { CheckCircle } from '@lucide/vue'
 import RecordForm from '@/components/records/RecordForm.vue'
 import type { PerformanceRecord, CreateRecordInput } from '@/types/record'
 

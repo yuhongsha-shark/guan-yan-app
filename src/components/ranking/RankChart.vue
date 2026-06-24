@@ -43,12 +43,12 @@ function buildConfig(): ChartConfiguration<'scatter'> {
   const textColor = dark ? '#999' : '#666'
   const colors = {
     red: dark ? '#ef4444' : '#c0392b',
-    grey: dark ? '#f3f4f6' : '#9ca3af',
+    gray: dark ? '#f3f4f6' : '#9ca3af',
     black: dark ? '#999' : '#1f1f1f',
   }
 
-  const rankOrder = ['red', 'grey', 'black'] as const
-  const labels = { red: '红榜', grey: '灰榜', black: '黑榜' }
+  const rankOrder = ['red', 'gray', 'black'] as const
+  const labels = { red: '红榜', gray: '灰榜', black: '黑榜' }
 
   const datasets = rankOrder.map(rank => {
     const points: ScatterPoint[] = props.results
@@ -61,7 +61,7 @@ function buildConfig(): ChartConfiguration<'scatter'> {
       backgroundColor: colors[rank],
       borderColor: (dark ? '#fff' : colors[rank]),
       borderWidth: dark ? 1 : 0,
-      pointRadius: rank === 'grey' ? 6 : 6,
+      pointRadius: 6,
       pointHoverRadius: 10,
       pointHoverBorderWidth: 2,
       pointHoverBorderColor: dark ? '#fff' : '#000',

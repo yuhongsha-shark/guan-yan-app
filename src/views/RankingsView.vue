@@ -220,7 +220,7 @@ function scrollToSection(id: string) {
     </div>
 
     <!-- 统计概要 -->
-    <div v-if="rankedResults.length > 0" class="flex gap-6 text-xs font-black tracking-[.15em]">
+    <div v-if="rankedResults.length > 0" class="flex gap-6 text-xs font-black tracking-[.15em] items-baseline">
       <button style="color:#c0392b" class="font-black hover:opacity-70 transition-opacity" @click="scrollToSection('rank-section-red')">红榜 {{ rankedResults.filter(r => r.rankClass === 'red').length }}</button>
       <button class="text-black/40 hover:text-black transition-colors" @click="scrollToSection('rank-section-grey')">灰榜 {{ rankedResults.filter(r => r.rankClass === 'gray').length }}</button>
       <button class="text-black/60 hover:text-black transition-colors" @click="scrollToSection('rank-section-black')">黑榜 {{ rankedResults.filter(r => r.rankClass === 'black').length }}</button>

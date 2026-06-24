@@ -51,7 +51,7 @@ const starDisplay = computed(() => {
       <div class="flex gap-2 mt-1.5 text-[10px] font-bold"
         :class="result.rankClass === 'red' ? 'text-white/60' : 'text-black/50'">
         <span>¥{{ result.price.toFixed(0) }}</span>
-        <span>{{ result.date }}</span>
+        <span>{{ result.date.slice(0, 4) }}</span>
         <span>基准 ¥{{ result.benchmark.toFixed(0) }}
           <span>· {{ priceDiffTag(result.price, result.benchmark).text }}</span>
         </span>

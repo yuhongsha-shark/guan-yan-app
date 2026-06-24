@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-24T00:00:00.000Z",
+  "title": "Design System: 观演红黑榜",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "primary", "displayName": "Pure Black Ink", "canonical": "#000000", "tonalRamp": ["#000000", "#1a1a1a", "#333333", "#4d4d4d", "#666666", "#808080", "#999999", "#b3b3b3"] },
+      "surface": { "role": "neutral", "displayName": "Pure White Surface", "canonical": "#ffffff", "tonalRamp": ["#ffffff", "#f5f5f5", "#ebebeb", "#e0e0e0", "#d6d6d6", "#cccccc", "#c2c2c2", "#b8b8b8"] },
+      "accent-red": { "role": "accent", "displayName": "Archive Red", "canonical": "#c0392b", "tonalRamp": ["#3e0b06", "#7a1510", "#b3201a", "#c0392b", "#d45a4d", "#df7c70", "#e99e94", "#f3c0b8"] },
+      "accent-gold": { "role": "accent", "displayName": "Star Gold", "canonical": "#facc15", "tonalRamp": ["#5c4a00", "#8a6f00", "#b89400", "#e6b800", "#facc15", "#fbd840", "#fce468", "#fdf090"] },
+      "col-grass": { "role": "categorical", "displayName": "Grass Column", "canonical": "oklch(0.78 0.22 142)", "tonalRamp": ["oklch(0.35 0.22 142)", "oklch(0.45 0.22 142)", "oklch(0.55 0.22 142)", "oklch(0.65 0.22 142)", "oklch(0.75 0.22 142)", "oklch(0.82 0.22 142)", "oklch(0.88 0.22 142)", "oklch(0.94 0.22 142)"] },
+      "col-sky": { "role": "categorical", "displayName": "Sky Column", "canonical": "oklch(0.72 0.18 235)", "tonalRamp": ["oklch(0.30 0.18 235)", "oklch(0.40 0.18 235)", "oklch(0.50 0.18 235)", "oklch(0.60 0.18 235)", "oklch(0.70 0.18 235)", "oklch(0.78 0.18 235)", "oklch(0.85 0.18 235)", "oklch(0.92 0.18 235)"] },
+      "col-sun": { "role": "categorical", "displayName": "Sun Column", "canonical": "oklch(0.88 0.19 105)", "tonalRamp": ["oklch(0.40 0.19 105)", "oklch(0.50 0.19 105)", "oklch(0.60 0.19 105)", "oklch(0.70 0.19 105)", "oklch(0.80 0.19 105)", "oklch(0.90 0.19 105)", "oklch(0.94 0.19 105)", "oklch(0.97 0.19 105)"] },
+      "col-clay": { "role": "categorical", "displayName": "Clay Column", "canonical": "oklch(0.68 0.06 30)", "tonalRamp": ["oklch(0.25 0.06 30)", "oklch(0.35 0.06 30)", "oklch(0.45 0.06 30)", "oklch(0.55 0.06 30)", "oklch(0.65 0.06 30)", "oklch(0.75 0.06 30)", "oklch(0.85 0.06 30)", "oklch(0.95 0.06 30)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page titles and record column names. Black, 900-weight, tight leading." },
+      "body": { "displayName": "Body", "purpose": "Form inputs and body text. Bold, 16px minimum." },
+      "label": { "displayName": "Label", "purpose": "All labels, buttons, navigation. Uppercase, 900-weight, 0.15em tracking." }
+    },
+    "shadows": [
+      { "name": "toast-float", "value": "0 4px 12px rgba(0,0,0,0.3)", "purpose": "Undo toast only — the sole elevated surface in the system." }
+    ],
+    "motion": [
+      { "name": "ease-drawer", "value": "cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.1s", "purpose": "Drawer slide-in. Slow, deliberate, no bounce." },
+      { "name": "ease-col-pop", "value": "cubic-bezier(0.22, 0.61, 0.36, 1) 0.35s", "purpose": "Column click feedback pop." },
+      { "name": "ease-fade", "value": "0.3s ease", "purpose": "Undo toast fade in/out." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main action button. Solid black, white text, uppercase.",
+      "html": "<button class=\"ds-btn-primary\">ADD RECORD</button>",
+      "css": ".ds-btn-primary { background: #000; color: #fff; padding: 10px 20px; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; border: none; border-radius: 0; cursor: pointer; transition: background 0.2s; font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; } .ds-btn-primary:hover { background: rgba(0,0,0,0.8); } .ds-btn-primary:focus-visible { outline: 2px solid #000; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary action. Transparent with 2px black border.",
+      "html": "<button class=\"ds-btn-secondary\">CANCEL</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: #000; padding: 10px 20px; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; border: 2px solid #000; border-radius: 0; cursor: pointer; transition: all 0.2s; font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; } .ds-btn-secondary:hover { background: #000; color: #fff; } .ds-btn-secondary:focus-visible { outline: 2px solid #000; outline-offset: 2px; }"
+    },
+    {
+      "name": "Underline Input",
+      "kind": "input",
+      "refersTo": "input-underline",
+      "description": "Clean underline input. Transparent bg, 2px bottom border.",
+      "html": "<input class=\"ds-input-underline\" type=\"text\" placeholder=\"Performance name\" />",
+      "css": ".ds-input-underline { width: 100%; padding: 8px 0; font-size: 1rem; font-weight: 700; color: #000; background: transparent; border: none; border-bottom: 2px solid rgba(0,0,0,0.2); border-radius: 0; outline: none; transition: border-color 0.2s; font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; } .ds-input-underline:focus { border-bottom-color: #000; } .ds-input-underline::placeholder { color: rgba(0,0,0,0.35); font-weight: 700; }"
+    },
+    {
+      "name": "Ranking Card (Red)",
+      "kind": "card",
+      "refersTo": "rank-card-red",
+      "description": "Red list ranking card — high value items.",
+      "html": "<div class=\"ds-rank-red\"><span class=\"ds-rank-num\">1</span><span class=\"ds-rank-name\">RECORD NAME</span><span class=\"ds-rank-score\">4.5</span></div>",
+      "css": ".ds-rank-red { display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: #c0392b; color: #fff; border: 2px solid #c0392b; border-radius: 0; font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; } .ds-rank-red .ds-rank-num { width: 32px; text-align: center; font-size: 1.125rem; font-weight: 900; } .ds-rank-red .ds-rank-name { flex: 1; font-size: 0.875rem; font-weight: 900; text-transform: uppercase; } .ds-rank-red .ds-rank-score { font-size: 1.25rem; font-weight: 900; }"
+    },
+    {
+      "name": "Record Column",
+      "kind": "custom",
+      "refersTo": "record-column",
+      "description": "Horizontal accordion column for browsing records. Signature component of the Underground Archive.",
+      "html": "<div class=\"ds-rec-col\"><span class=\"ds-rec-date\">2026.06.06</span><h3 class=\"ds-rec-name\">PERFORMANCE NAME</h3><span class=\"ds-rec-cta\">VIEW DETAILS →</span></div>",
+      "css": ".ds-rec-col { display: flex; flex-direction: column; justify-content: space-between; padding: 20px 16px; min-width: 140px; flex: 1; background: oklch(0.78 0.22 142); border-right: 1px solid rgba(0,0,0,0.12); cursor: pointer; transition: flex 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-family: system-ui, -apple-system, 'PingFang SC', sans-serif; overflow: hidden; } .ds-rec-col:hover { flex: 2.5; } .ds-rec-col .ds-rec-date { font-size: 0.75rem; font-weight: 900; color: rgba(0,0,0,0.8); } .ds-rec-col .ds-rec-name { font-size: clamp(1.25rem, 4vw, 2rem); font-weight: 900; color: #000; line-height: 1.08; text-wrap: balance; } .ds-rec-col .ds-rec-cta { display: inline-block; background: #000; color: #fff; padding: 6px 12px; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; transition: opacity 0.3s; } .ds-rec-col:hover .ds-rec-cta { opacity: 1; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "「地下档案室」The Underground Archive",
+    "overview": "「观演红黑榜」的视觉系统是一座地下档案室——每一场演出都是一份档案，每一种颜色都是一枚标签。它拒绝 SaaS 模板的圆角与渐变，拒绝 Material Design 的标准化组件，拒绝日系茶系的暖纸色。它是一面钉满海报的水泥墙：高饱和色块、粗体无衬线字、纯黑纯白直角边框。这个系统只有一个目的：让每一次观演记录都有视觉分量。",
+    "keyCharacteristics": [
+      "纯白表面 + 纯黑墨水 + 2px直角边框",
+      "四列高饱和 OKLCH 色块用于记录分类",
+      "单一家族多字重（font-black 900 + font-bold 700）",
+      "全大写标签 + 0.15em tracking",
+      "底划线输入 + 透明背景",
+      "暗色模式完整覆盖"
+    ],
+    "rules": [
+      { "name": "The Black-and-White Rule", "body": "页面骨架只用纯黑与纯白。没有奶油白、暖纸色、冷灰——只有 #000 和 #fff。", "section": "colors" },
+      { "name": "The Four-Color Rule", "body": "四列分类色是 ONLY 的彩色元素（除红榜和星星外）。", "section": "colors" },
+      { "name": "The Extreme Contrast Rule", "body": "只用两个字重：font-black (900) 和 font-bold (700)。", "section": "typography" },
+      { "name": "The 0.15em Rule", "body": "所有标签和按钮使用统一 letter-spacing: 0.15em。", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "表面在静止时是平的。阴影只在需要传达临时浮起时出现。", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use 2px solid borders for all structural elements",
+      "Do use font-black (900) for every label, button, and heading",
+      "Do use 0.15em letter-spacing on all labels and buttons",
+      "Do keep body text at 1rem (16px) minimum",
+      "Do use the four OKLCH colors ONLY for record column backgrounds",
+      "Do keep surfaces flat — shadows only for toast and drawer"
+    ],
+    "donts": [
+      "Don't use rounded corners (border-radius > 0)",
+      "Don't use gradient text (background-clip: text)",
+      "Don't use border-left/right > 1px as colored stripes on cards",
+      "Don't use Inter, Roboto, or any web font — system fonts only",
+      "Don't use cream, sand, beige, or warm-tinted backgrounds",
+      "Don't use Material Design, daisyUI, or third-party UI libraries",
+      "Don't use purple-blue gradients, glassmorphism, or SaaS clichés"
+    ]
+  }
+}
